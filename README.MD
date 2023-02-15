@@ -3,6 +3,41 @@ A simple JSON API that returns some information about the Kubernetes Pod where i
 
 I wrote this to help me debug kubernetes services and load balancers.
 
+## Pod template config
+In order to return the pod info. The app expects certain environment variables to be set. You can set them in the pod template this way:
+````yaml
+apiVersion: v1
+kind: Pod
+metadata:
+...
+spec:
+...
+  containers:
+    - ...
+      env:
+      - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+      - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+      - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+      - name: POD_SERVICE_ACCOUNT_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.serviceAccountName
+      - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+````
+
+
 ## Install tools
 ````bash
 make install-tools
@@ -23,7 +58,6 @@ Make a curl request:
 ````bash
 curl -s localhost:3000/api/v1/info
 ````
-
 
 
 ## License
