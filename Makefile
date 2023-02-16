@@ -10,5 +10,8 @@ test:
 lint:
 	$(MYGOBIN)/golangci-lint run
 
+build:
+    go build ./...
+
 run-dev: 
 	go run main.go
