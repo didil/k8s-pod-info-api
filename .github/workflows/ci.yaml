@@ -40,9 +40,13 @@ jobs:
           registry: quay.io
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_ROBOT_TOKEN }}
-          
+
+      - name: Set output vars
+        id: set_output_vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: didil/k8s-pod-info-api:${{ github.sha }}
+          tags: quay.io/didil/k8s-pod-info-api:${{ steps.set_output_vars.outputs.sha_short }}
