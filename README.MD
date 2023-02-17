@@ -1,7 +1,7 @@
 # K8s Pod Info API
-A simple JSON API that returns some information about the Kubernetes Pod where it's running.
+A simple JSON API that returns some information about the kubernetes pod where it's running.
 
-I wrote this to help me debug kubernetes services and load balancers.
+An example of a use case is debugging Kubernetes services and load balancers.
 
 ## Pod template config
 In order to return the pod info. The app expects certain environment variables to be set. You can set them in the pod template this way:
@@ -58,7 +58,19 @@ Make a curl request:
 ````bash
 curl -s localhost:3000/api/v1/info
 ````
-
+````json
+{
+  "pod": {
+    "name": "k8s-pod-info-api-6cf5954b69-fklxx",
+    "ip": "10.42.1.8",
+    "namespace": "default",
+    "serviceAccountName": "default"
+  },
+  "node": {
+    "name": "k3s-local-agent-1"
+  }
+}
+````
 
 ## License
 
