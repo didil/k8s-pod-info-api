@@ -16,25 +16,25 @@ spec:
     - ...
       env:
       - name: POD_NAME
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.name
+        valueFrom:
+          fieldRef:
+            fieldPath: metadata.name
       - name: POD_IP
-          valueFrom:
-            fieldRef:
-              fieldPath: status.podIP
+        valueFrom:
+          fieldRef:
+            fieldPath: status.podIP
       - name: POD_NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
+        valueFrom:
+          fieldRef:
+            fieldPath: metadata.namespace
       - name: POD_SERVICE_ACCOUNT_NAME
-          valueFrom:
-            fieldRef:
-              fieldPath: spec.serviceAccountName
+        valueFrom:
+          fieldRef:
+            fieldPath: spec.serviceAccountName
       - name: NODE_NAME
-          valueFrom:
-            fieldRef:
-              fieldPath: spec.nodeName
+        valueFrom:
+          fieldRef:
+            fieldPath: spec.nodeName
 ````
 
 
