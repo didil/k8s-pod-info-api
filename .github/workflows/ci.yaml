@@ -56,4 +56,5 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
+          platforms: linux/amd64,linux/arm64          
           tags: quay.io/didil/k8s-pod-info-api:${{ steps.set_output_vars.outputs.short_sha }}
