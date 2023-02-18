@@ -57,4 +57,4 @@ jobs:
         with:
           push: true
           platforms: linux/amd64,linux/arm64          
-          tags: quay.io/didil/k8s-pod-info-api:${{ steps.set_output_vars.outputs.short_sha }}
+          tags: ${{ env.DOCKER_IMAGE_NAME }}:${{ steps.set_output_vars.outputs.short_sha }}
