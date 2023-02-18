@@ -3,7 +3,7 @@ module github.com/didil/k8s-pod-info-api
 go 1.19
 
 require (
-	github.com/go-chi/chi v1.5.4
+	github.com/go-chi/chi/v5 v5.0.8
 	github.com/go-chi/render v1.0.2
 	github.com/golangci/golangci-lint v1.51.1
 	github.com/stretchr/testify v1.8.1
